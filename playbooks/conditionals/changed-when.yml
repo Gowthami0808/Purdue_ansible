@@ -6,10 +6,10 @@
    vars:
      pkg: httpd
    tasks:
-     - shell: rpm -q httpd | head -n 1
+     - shell: rpm -q httpd | head -n 1  //check pkg is installed or not
        args:
          warn: false
-       register: result
+       register: result  //output is stored in result
        changed_when: false
      - fail:
          msg: "Failed because {{ pkg }} is already installed"
@@ -19,3 +19,8 @@
      - yum:
         name: "{{ pkg }}"
         state: present
+   ...
+
+
+        NOTE:playbook should install package only when package is not installed. this is for centos and rhel distribution. rpm should replaced with apt
+        Follow httpd installation in Ansible playbooks zipped file
