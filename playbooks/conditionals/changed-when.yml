@@ -6,7 +6,7 @@
    vars:
      pkg: httpd
    tasks:
-     - shell: rpm -q httpd | head -n 1
+     - shell: rpm -q httpd | head -n 1  //cmd to verify the pkg exist or not replace rpm with apk for ubanthu
        args:
          warn: false
        register: result
